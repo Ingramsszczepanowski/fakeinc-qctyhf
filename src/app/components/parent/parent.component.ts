@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild , AfterViewInit} from '@angular/core';
 import { SearchFilterPipe} from '../../Pipes/search-filter.pipe';
 
 @Component({
@@ -6,16 +6,30 @@ import { SearchFilterPipe} from '../../Pipes/search-filter.pipe';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
+
 export class ParentComponent implements OnInit {
+//export class ParentComponent implements AfterViewInit {
+  
+  @ViewChild('countVar', {static: false}) countVar;
   employees: any[];
   headers = ["Code","Name","Gender","Salary","Date of Birth"];
   SearchItemCount: any;
+
   constructor() {}
+
 
   ngOnInit(){
     this.getEmployees();
+    console.log("Count " + this.countVar);
   }
-
+  
+  /*
+  ngAfterViewInit()
+  {
+    this.getEmployees();
+  }
+  */
+  
   getEmployees()
   { 
     this.employees = [

@@ -23,7 +23,7 @@
             </th>
             </thead>
             <tbody>
-              <ng-container *ngFor = "let obj of employees | searchFilter:  searchText">
+              <ng-container *ngFor = "let obj of employees | searchFilter:  searchText" #countVar>
                 <tr>
                   <td>{{obj.code}}</td>
                   <td>{{obj.name}}</td>
@@ -32,7 +32,8 @@
                   <td>{{obj.dob}}</td>
                 </tr>
               </ng-container>
-              Showing {{(employees | searchFilter: searchText).length}} Employees
+             Showing {{(employees | searchFilter: searchText).length}} Employees
+            <!-- Showing {{searchResult.length}} Employees -->
             </tbody>
           </table>
         </div>
