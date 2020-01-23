@@ -32,6 +32,7 @@
                   <td>{{obj.dob}}</td>
                 </tr>
               </ng-container>
+              Showing {{(employees | searchFilter: searchText).length}} Employees
             </tbody>
           </table>
         </div>

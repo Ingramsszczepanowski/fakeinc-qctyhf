@@ -11,7 +11,6 @@ export class SearchFilterPipe implements PipeTransform {
      * @param excludes array of strings which will ignored during search
      */
      transform(items: any, term: string, excludes: any = []): any {
-      //console.log(" the passed in params are :  items = " + items + " term = " + term + " exludes = " + excludes);
       if (!term || !items) return items;
       return SearchFilterPipe.filter(items, term , excludes);
     }
