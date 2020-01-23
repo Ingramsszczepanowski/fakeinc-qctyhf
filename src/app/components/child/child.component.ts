@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+constructor() { }
+ngOnInit(){}
 
 }

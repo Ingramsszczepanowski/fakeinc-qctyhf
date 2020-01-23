@@ -8,10 +8,12 @@ import { ChildComponent } from './components/child/child.component';
 import { ParentComponent } from './components/parent/parent.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { SearchFilterPipe } from './Pipes/search-filter.pipe';
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule],
-  declarations: [ AppComponent, ChildComponent, ParentComponent, HomeComponent ],
-  providers :   [ AppComponent, ChildComponent, ParentComponent ],
+  declarations: [ AppComponent, ChildComponent, ParentComponent, HomeComponent, SearchFilterPipe],
+  providers :   [ AppComponent, ChildComponent, ParentComponent, HomeComponent, SearchFilterPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
