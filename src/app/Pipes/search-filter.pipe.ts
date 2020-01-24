@@ -1,30 +1,21 @@
-import { Pipe, PipeTransform, Output, EventEmitter } from '@angular/core';
+ import { Pipe, PipeTransform, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+
 @Pipe({
   name: 'searchFilter'
 })
 export class SearchFilterPipe implements PipeTransform {
-  
-  constructor(){}
-  /**
-     * @param items object from array
-     * @param term term's search
-     * @param excludes array of strings which will ignored during search
-     */
-     transform(items: any, term: string, excludes: any = []): any {
-      if (!term || !items) return items;
-      return SearchFilterPipe.filter(items, term , excludes);
-    }
 
-    /**
-     *
-     * @param items List of items to filter
-     * @param term  a string term to compare with every property of the list
-     * @param excludes List of keys which will be ignored during search
-     */
-    static filter(items: Array<{ [key: string]: any }>, term: string, excludes: any): Array<{ [key: string]: any }> {
-  
+  constructor(){}
+       transform(items: any, term: string, count , excludes: any = []): any {
+      if (!term || !items) return items;
+      return SearchFilterPipe.filter(items, term , count, excludes);
+    }
+    static filter(items: Array<{ [key: string]: any }>, term: string, count, excludes: any): Array<{ [key: string]: any }> {
+
+      console.log(term);
       const toCompare = term.toLowerCase();
-  
+
       function checkInside(item: any, term: string) {
         for (let property in item) {
           if (item[property] === null || item[property] == undefined || excludes.includes(property)) {
@@ -41,13 +32,12 @@ export class SearchFilterPipe implements PipeTransform {
         }
         return false;
       }
-  
-      return items.filter(function (item) {
+      const newArr = items.filter(function (item) {
         return checkInside(item, term);
       });
+
+      count.next(newArr.length);
+      return newArr;
     }
-
-
-
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild , AfterViewInit} from '@angular/core';
 import { SearchFilterPipe} from '../../Pipes/search-filter.pipe';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-parent',
@@ -9,8 +10,8 @@ import { SearchFilterPipe} from '../../Pipes/search-filter.pipe';
 
 export class ParentComponent implements OnInit {
 //export class ParentComponent implements AfterViewInit {
-  
-  @ViewChild('countVar', {static: false}) countVar;
+  //@ViewChild('countVar', {static: false}) countVar;
+  count = new Subject();
   employees: any[];
   headers = ["Code","Name","Gender","Salary","Date of Birth"];
   SearchItemCount: any;
@@ -20,7 +21,7 @@ export class ParentComponent implements OnInit {
 
   ngOnInit(){
     this.getEmployees();
-    console.log("Count " + this.countVar);
+    this.count.subscribe(c => console.log('Counting', c));
   }
   
   /*
