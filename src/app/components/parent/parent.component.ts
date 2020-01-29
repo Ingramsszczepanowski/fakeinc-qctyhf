@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild , AfterViewInit} from '@angular/core';
 import { SearchFilterPipe} from '../../Pipes/search-filter.pipe';
 import { Subject } from 'rxjs';
+import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-parent',
@@ -28,7 +29,22 @@ export class ParentComponent implements OnInit {
   minPageItemCount: number;
   previousPage: number;
   pageItemCount: number;
-  constructor() {}
+
+  //Date Picker 
+  dtPickerA : boolean = true;
+  DateRequired: boolean;
+  formattedFromDate: Date;
+  formattedToDate: Date;
+  fromDate: NgbDate;
+  hoveredDate: NgbDate;
+  toDate: NgbDate;
+  maxDateString: string;
+  maxToDate: any;
+
+  constructor(private calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
+    this.maxToDate = JSON.stringify(calendar.getToday());
+    this.maxDateString = this.maxToDate.toString().replace(/"/g, "");
+  }
 
 
   ngOnInit(){
@@ -92,4 +108,34 @@ export class ParentComponent implements OnInit {
     ]
      this.arraySizeOneForms = this.employees.length;
   }
+
+  // ********* Date Selector  ********************
+onDateSelection(date: NgbDate) {
+  if (!this.fromDate && !this.toDate) {
+    this.fromDate = date;
+  } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+    this.toDate = date;
+  } else {
+    this.toDate = null;
+    this.fromDate = date;
+  }
+}
+
+isHovered(date: NgbDate) {
+  return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+}
+
+isInside(date: NgbDate) {
+  return date.after(this.fromDate) && date.before(this.toDate);
+}
+
+isRange(date: NgbDate) {
+  return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
+}
+
+validateInput(currentValue: NgbDate, input: string): NgbDate {
+  const parsed = this.formatter.parse(input);
+  return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
+}
+
 }
