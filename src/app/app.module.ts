@@ -11,9 +11,10 @@ import { HomeComponent } from './components/home/home.component';
 
 import { SearchFilterPipe } from './Pipes/search-filter.pipe';
 import { QuickstartComponent } from './components/quickstart/quickstart.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, AppRoutingModule,NgbModule],
+  imports:      [ BrowserModule, FormsModule, AppRoutingModule,NgbModule,PdfViewerModule],
   declarations: [ AppComponent, ChildComponent, ParentComponent, HomeComponent, SearchFilterPipe, QuickstartComponent],
   providers :   [ AppComponent, ChildComponent, ParentComponent, HomeComponent, SearchFilterPipe ],
   bootstrap:    [ AppComponent ]
