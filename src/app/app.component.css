@@ -1,3 +1,109 @@
 p {
   font-family: Lato;
 }
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }
+
+ .ingramNav{
+     background-color: #0077B4;
+ }
+
+#black{
+    background-color: black;
+    color: white;
+}
+
+ #body-row {
+    margin-left:0;
+    margin-right:0;
+}
+/*
+#sidebar-container {
+    min-height: 100vh;   
+    background-color: #333;
+    padding: 0;
+}
+*/
+#sidebar-container { 
+    min-height: 100vh;
+    background-color: #333;
+    padding: 0;
+}
+/* Sidebar sizes when expanded and expanded */
+.sidebar-expanded {
+    width: 230px;
+}
+.sidebar-collapsed {
+    width: 60px;
+}
+
+/* Menu item*/
+#sidebar-container .list-group a {
+    height: 50px;
+    color: white;
+}
+
+/* Submenu item*/
+#sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+}
+.sidebar-submenu {
+    font-size: 0.9rem;
+}
+
+/* Separators */
+.sidebar-separator-title {
+    background-color: #333;
+    height: 35px;
+}
+.sidebar-separator {
+    background-color: #333;
+    height: 25px;
+}
+.logo-separator {
+    background-color: #333;    
+    height: 60px;
+}
+
+/* Closed submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0d7";
+}
+
+#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0da";
+}
+
+#top-bell{
+    color:white;
+}
+
+#ex4 .p1[data-count]:after{
+    position:absolute;
+    right:25%;
+    top:15%;
+    content: attr(data-count);
+    font-size:50%;
+    padding:.2em;
+    border-radius:50%;
+    line-height:1em;
+    color: white;
+    background:rgba(255,0,0,.85);
+    text-align:center;
+    min-width: 1em;
+  }
+  
+
+  #StickyNoteBtn{
+    color: #FFF2B5
+}
+
+html,body{margin:0;padding:0;}
+h1,p{margin:0 0 1em}

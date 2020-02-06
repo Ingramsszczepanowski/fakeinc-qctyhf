@@ -10,10 +10,11 @@ import { ParentComponent } from './components/parent/parent.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { SearchFilterPipe } from './Pipes/search-filter.pipe';
+import { QuickstartComponent } from './components/quickstart/quickstart.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule,NgbModule],
-  declarations: [ AppComponent, ChildComponent, ParentComponent, HomeComponent, SearchFilterPipe],
+  declarations: [ AppComponent, ChildComponent, ParentComponent, HomeComponent, SearchFilterPipe, QuickstartComponent],
   providers :   [ AppComponent, ChildComponent, ParentComponent, HomeComponent, SearchFilterPipe ],
   bootstrap:    [ AppComponent ]
 })
