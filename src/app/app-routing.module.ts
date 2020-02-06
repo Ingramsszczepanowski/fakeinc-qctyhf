@@ -11,7 +11,7 @@ const routes: Routes = [
   { path :  'Child',component: ChildComponent},
   { path :  'App',component: AppComponent},
   { path :  'Home',component: HomeComponent},
-  { path :  'QuickStart',component: QuickstartComponent},
+  { path :  'Quickstart',component: QuickstartComponent},
   { path :  '**', redirectTo: 'Parent'}
 ];
 
