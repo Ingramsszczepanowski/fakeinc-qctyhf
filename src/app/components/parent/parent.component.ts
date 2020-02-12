@@ -9,7 +9,7 @@ import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-boo
   styleUrls: ['./parent.component.css'],
   template: `
     Example: {{ exampleParent }}
-    <app-child (exampleOutput)="exampleMethodParent($event)>
+    <app-child (exampleOutput)="exampleMethodParent($event)">
     </app-child>`
 })
 
