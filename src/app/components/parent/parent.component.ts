@@ -6,10 +6,19 @@ import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-boo
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
-  styleUrls: ['./parent.component.css']
+  styleUrls: ['./parent.component.css'],
+  template: `
+    Example: {{ exampleParent }}
+    <app-child (exampleOutput)="exampleMethodParent($event)>
+    </app-child>`
 })
 
 export class ParentComponent implements OnInit {
+  exampleParent: string;
+
+  exampleMethodParent($event) {
+    this.exampleParent = $event;
+  }
   count = new Subject();
   employees: any[];
   headers = ["Code","Name","Gender","Salary","Date of Birth"];
